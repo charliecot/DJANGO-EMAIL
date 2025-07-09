@@ -1,0 +1,31 @@
+{% extends 'Register/base.html' %}
+ {% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% for message in messages %}
+              <div class="alert alert-info alert-dismissable" role="alert">
+                <span class="text-secondary">{{messages}}</span>
+                <button class="btn-close" aria-label="Close" arial-dismiss="alert"></button>
+              </div>  
+
+             {% endfor %}
+             {% if user.is_authenticated %}
+             <p>wellocom {{user.username}}thanks for logg in</p>
+             {% else %}
+             <p>wellocom,new user please log in</p>
+             <buttton class="btn btn-primary"><a href="{% url 'login' %}">log in</a></buttton>
+             or
+             <buttton class="btn btn-primary"><a href="{% url 'register' %}">register</a></buttton>
+
+             {% endif %}
+
+
+        </div>
+
+    </div>
+</div>
+ 
+    
+{% endblock %}
